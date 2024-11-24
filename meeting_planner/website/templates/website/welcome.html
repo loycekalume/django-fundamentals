@@ -1,0 +1,29 @@
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block title %}
+Welcome
+{% endblock %}
+{% block content %}
+<img src="{% static 'website/profile.png' %}" width="100px">
+<p>Welcome to our beautiful website</p>
+<p>{{message}}</p>
+{% if user.is_authenticated %}
+<h2>Meetings</h2>
+<ul>
+    {% for meeting in meetings%}
+    <li>
+        <a href="{% url 'detail' meeting.id %}">
+            {{meeting.title}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+<a href="{% url 'rooms' %}">Meeting Rooms</a><br><br>
+
+
+<a href="{% url 'new' %}">Add New Meeting</a>
+{% endif %}
+{% endblock %}

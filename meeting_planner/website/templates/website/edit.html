@@ -1,0 +1,16 @@
+{% extends "website/base.html" %}
+
+{% block title %}
+Change Meeting: {{meeting.title}}
+{% endblock %}
+
+{% block content %}
+<h2>Change meeting </h2>
+<form method="POST">
+    <table>
+        {{form}}
+    </table>
+    {% csrf_token %}
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

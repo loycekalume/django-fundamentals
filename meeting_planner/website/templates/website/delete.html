@@ -1,0 +1,18 @@
+{% extends "website/base.html" %}
+
+{% block title %}
+Delete Meeting: {{meeting.title}}
+{% endblock %}
+
+{% block content %}
+<h2>Delete meeting </h2>
+<form method="POST">
+    <table>
+        {{form}}
+    </table>
+    {% csrf_token %}
+    <p>Are you sure?</p>
+    <button type="submit">Yes</button>
+    <a href="{% url 'detail' meeting.id %}">No,take me back</a>
+</form>
+{% endblock %}
